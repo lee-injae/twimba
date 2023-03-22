@@ -20,7 +20,7 @@ document.addEventListener('click', function(e){
 })
 
 function handleReplyBtnClick(tweetId){
-    // 
+
     const targetTweetObj = tweetsData.filter(function(tweet){
         return tweetId === tweet.uuid
     })[0]
@@ -36,6 +36,7 @@ function handleReplyBtnClick(tweetId){
             }
         )
         render()
+        document.getElementById(`reply-container-${tweetId}`).classList.toggle("hidden")
         replyInputArea.value = ""
     }
 }
