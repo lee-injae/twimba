@@ -17,7 +17,29 @@ document.addEventListener('click', function(e){
     else if (e.target.dataset.replyBtn){
         handleReplyBtnClick(e.target.dataset.replyBtn)
     }
+
+    else if (e.target.dataset.deleteTweetBtn){
+        handleDeleteTweetBtn(e.target.dataset.deleteTweetBtn)
+    }
 })
+
+function handleDeleteTweetBtn(tweetId){
+
+    const targetTweetObj = tweetsData.filter(function(tweet){
+        return tweetId === tweet.uuid
+    })[0]
+
+    const index = tweetsData.indexOf(targetTweetObj)
+
+    if (index > -1) {
+        tweetsData.splice(index, 1)
+    }
+    render()
+
+    console.log(targetTweetObj)
+    console.log(tweetsData.indexOf(targetTweetObj))
+}
+
 
 function handleReplyBtnClick(tweetId){
 
@@ -133,12 +155,25 @@ function getFeedHtml(){
                 `
             })
         }
+
+        let hiddenClass = ""
+
+        if (tweet.handle != "@Scrimba") {
+           hiddenClass = "hidden"
+        }
           
         feedHtml += `
             <div class="tweet">
+
+                <div class="delete-tweet-btn-container">
+                    <button class="${hiddenClass} delete-tweet-btn" 
+                        id="x"
+                        data-delete-tweet-btn="${tweet.uuid}"
+                        >X</button>
+                <div>
+
                 <div class="tweet-inner">
                     <img src="${tweet.profilePic}" class="profile-pic">
-
                     <div>
                         <p class="handle">${tweet.handle}</p>
                         <p class="tweet-text">${tweet.tweetText}</p>
@@ -179,8 +214,8 @@ function getFeedHtml(){
             </div>
         `
    })
-   console.log(feedHtml)
    return feedHtml 
+   
 }
 
 function render(){
