@@ -1,7 +1,7 @@
 export const tweetsData = [   
     {
         handle: `@Oshi 💎`,
-        profilePic: `images/oshi.jpeg`,
+        profilePic: `./images/oshi.jpeg`,
         likes: 27,
         retweets: 10,
         tweetText: `Daddy is my best friend~!`,
@@ -12,7 +12,7 @@ export const tweetsData = [
     },    
     {
         handle: `@GirlBookE ✅`,
-        profilePic: `images/girlbooke.jpeg`,
+        profilePic: `./images/girlbooke.jpeg`,
         likes: 6500,
         retweets: 234,
         tweetText: `I need volunteers for helping me conquer the universe 🪐. No experience necessary🚀`,

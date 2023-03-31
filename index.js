@@ -53,7 +53,7 @@ function handleReplyBtnClick(tweetId){
         targetTweetObj.replies.unshift(
             {
                 handle: "@NotAvgJoe",
-                profilePic: "images/notavgjoe.png",
+                profilePic: "./images/notavgjoe.png",
                 tweetText: replyInputArea.value
             }
         )
