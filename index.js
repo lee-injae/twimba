@@ -52,8 +52,8 @@ function handleReplyBtnClick(tweetId){
     if (replyInputArea.value){
         targetTweetObj.replies.unshift(
             {
-                handle: "Scrimba",
-                profilePic: "images/scrimbalogo.png",
+                handle: "@NotAvgJoe",
+                profilePic: "images/notavgjoe.png",
                 tweetText: replyInputArea.value
             }
         )
@@ -95,9 +95,6 @@ function handleRetweetClick(tweetId){
 
 function handleReplyClick(replyId){
     document.getElementById(`reply-container-${replyId}`).classList.toggle('hidden')
-
-    // console.log(document.getElementById(`reply-input-area-${replyId}`))
-
 }
 
 function handleTweetBtnClick(){
@@ -105,8 +102,8 @@ function handleTweetBtnClick(){
 
     if(tweetInput.value){
         tweetsData.unshift({
-            handle: `@Scrimba`,
-            profilePic: `images/scrimbalogo.png`,
+            handle: `@NotAvgJoe`,
+            profilePic: `images/notavgjoe.png`,
             likes: 0,
             retweets: 0,
             tweetText: tweetInput.value,
@@ -158,7 +155,7 @@ function getFeedHtml(){
 
         let hiddenClass = ""
 
-        if (tweet.handle != "@Scrimba") {
+        if (tweet.handle != "@NotAvgJoe") {
            hiddenClass = "hidden"
         }
           
@@ -200,13 +197,14 @@ function getFeedHtml(){
                     </div> 
                 </div>
                 <div class="hidden" id="reply-container-${tweet.uuid}">
-                    <div class="" id="reply-input-${tweet.uuid}">
-                        <img src="images/scrimbalogo.png" alt="scrimba-logo" class="profile-pic">
-                        <textarea placeholder="tweet your reply" 
+                    <div class="reply-textarea-container" id="reply-input-${tweet.uuid}">
+                        <img class="profile-pic" src="images/notavgjoe.png" alt="notavgjoe-logo">
+                        <textarea class="reply-textarea" placeholder="Tweet your reply" 
                             id="reply-input-area-${tweet.uuid}" 
                             ></textarea>
-                        <button id="reply-btn" data-reply-btn="${tweet.uuid}">Reply</button>
+                        
                     </div>
+                    <button class="reply-btn" id="reply-btn" data-reply-btn="${tweet.uuid}">Reply</button>
                     <div class="" id="replies-${tweet.uuid}">
                         ${repliesHtml}
                     </div>   

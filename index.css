@@ -147,12 +147,28 @@ button{
     display: none;
 }
 
-.reply-textarea{
-    display: inline;
-    width: 70%;
-    border: pink 2px solid;
+.reply-textarea-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5em;;
+    align-items: center;
+    margin-top: 0.5em;
+    /* border: red 2px solid; */
 }
 
+.reply-textarea{
+    /* display: inline; */
+    /* width: 70%; */
+    /* border: pink 2px solid; */
+    border-radius: 5px;
+    margin: 0;
+    font-size: 1rem;
+    padding: 15px;
+}
+
+.reply-btn{
+   margin-top: 0.5em;
+}
 /* border: none;
     resize: none;
     padding: 10px;
